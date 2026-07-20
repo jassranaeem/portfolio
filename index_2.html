@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jassra Naeem — Full-Stack &amp; AI Developer</title>
+<meta name="description" content="Portfolio of Jassra Naeem — full-stack web developer and AI application engineer specializing in WordPress, automation, and AI systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070c; --bg2:#0c111d; --card:rgba(255,255,255,0.035); --glass:rgba(9,13,22,0.65);
+  --text:#f1f4f9; --text2:#a6afc4; --text3:#6d7690; --border:rgba(255,255,255,0.09); --border2:rgba(255,255,255,0.22);
+  --blue:#5b8cff; --purple:#a78bfa; --emerald:#34d399; --shadow-btn:0 12px 30px rgba(91,140,255,0.28);
+}
+html.light{
+  --bg:#f6f7fb; --bg2:#ffffff; --card:rgba(10,14,25,0.035); --glass:rgba(255,255,255,0.75);
+  --text:#0e1320; --text2:#4b5268; --text3:#8890a3; --border:rgba(10,14,25,0.09); --border2:rgba(10,14,25,0.24);
+  --blue:#3b6fe0; --purple:#7c4fe0; --emerald:#0d9668; --shadow-btn:0 12px 30px rgba(59,111,224,0.22);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation-duration:.001ms!important;transition-duration:.001ms!important;} }
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;transition:background .4s ease,color .4s ease;position:relative;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+::selection{background:rgba(91,140,255,.35);}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.disp{font-family:'Space Grotesk',sans-serif;font-weight:700;}
+.orb{position:fixed;border-radius:50%;filter:blur(45px);pointer-events:none;z-index:0;}
+.orb-a{top:-10%;left:-8%;width:520px;height:520px;background:radial-gradient(circle,var(--blue) 0%,transparent 70%);opacity:.18;animation:floatA 18s ease-in-out infinite;}
+.orb-b{bottom:-12%;right:-8%;width:600px;height:600px;background:radial-gradient(circle,var(--purple) 0%,transparent 70%);opacity:.16;animation:floatB 22s ease-in-out infinite;}
+@keyframes floatA{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-30px,40px) scale(1.05);}}
+@keyframes floatB{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(40px,-30px) scale(1.08);}}
+@keyframes pulseGlow{0%,100%{opacity:.2;}50%{opacity:.4;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:16px clamp(20px,5vw,56px);background:var(--glass);backdrop-filter:blur(20px) saturate(140%);border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+.brand .sq{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;}
+.navlinks{display:flex;align-items:center;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--text2);font-weight:500;}
+.navlinks a:hover{color:var(--text);}
+.navtools{display:flex;align-items:center;gap:10px;}
+.iconbtn{width:36px;height:36px;border-radius:9px;border:1px solid var(--border);background:var(--bg2);color:var(--text);cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;}
+.navcta{padding:9px 16px;border-radius:9px;background:var(--text);color:var(--bg);font-weight:600;font-size:13px;white-space:nowrap;}
+.navtoggle{display:none;background:none;border:1px solid var(--border);color:var(--text);border-radius:9px;width:36px;height:36px;font-size:18px;cursor:pointer;}
+@media (max-width:820px){
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg2);flex-direction:column;align-items:flex-start;padding:18px 24px;border-bottom:1px solid var(--border);gap:14px;}
+  .navlinks.open{display:flex;}
+  .navtoggle{display:flex;align-items:center;justify-content:center;}
+}
+
+section{position:relative;z-index:1;padding:88px clamp(20px,6vw,80px);}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;}
+.eyebrow.blue{color:var(--blue);} .eyebrow.purple{color:var(--purple);}
+h2.h{font-size:clamp(28px,4vw,40px);margin:0 0 12px;letter-spacing:-0.01em;}
+
+.hero{min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding-top:64px;animation:fadeUp .8s ease both;}
+.hero h1{font-size:clamp(38px,7.5vw,84px);line-height:1.03;margin:0 0 24px;letter-spacing:-.02em;max-width:900px;background:linear-gradient(100deg,var(--text),var(--blue) 45%,var(--purple) 65%,var(--text));background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 8s linear infinite;}
+@keyframes shimmer{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+.hero p.lead{font-size:clamp(16px,2.2vw,21px);line-height:1.6;color:var(--text2);max-width:680px;margin:0 0 36px;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+.btn{padding:14px 26px;border-radius:11px;font-weight:600;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;}
+.btn-grad{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;box-shadow:var(--shadow-btn);}
+.btn-outline{border:1px solid var(--border2);color:var(--text);}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:26px;max-width:740px;border-top:1px solid var(--border);padding-top:28px;}
+.stats .n{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,38px);font-weight:700;}
+.stats .l{font-size:12.5px;color:var(--text3);margin-top:4px;}
+
+.about-grid{display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:48px;align-items:start;}
+@media (max-width:760px){.about-grid{grid-template-columns:1fr;}}
+.avatar{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:52px;font-weight:700;color:#fff;}
+.about-meta{margin-top:16px;font-size:13px;color:var(--text3);line-height:1.6;}
+.about-body p{font-size:16.5px;line-height:1.75;color:var(--text2);max-width:680px;margin:0 0 24px;}
+.about-body p.note{font-size:13.5px;color:var(--text3);font-style:italic;}
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.card{padding:20px;border-radius:14px;background:var(--card);border:1px solid var(--border);}
+.card .t{font-weight:600;margin-bottom:6px;}
+.card .d{font-size:13.5px;color:var(--text3);line-height:1.5;}
+
+.timeline{max-width:820px;}
+.tl-item{display:grid;grid-template-columns:24px 1fr;gap:20px;padding-bottom:40px;}
+.tl-dotwrap{display:flex;flex-direction:column;align-items:center;}
+.tl-dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));margin-top:5px;flex-shrink:0;}
+.tl-bar{flex:1;width:2px;background:var(--border);margin-top:5px;}
+.tl-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px;}
+.tl-date{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3);}
+.tl-type{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--text2);}
+.tl-role{font-size:18px;font-weight:700;margin:0 0 3px;}
+.tl-co{font-size:14px;color:var(--purple);font-weight:600;margin-bottom:10px;}
+.tl-b{display:flex;gap:8px;font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:5px;}
+.tl-b span.dash{color:var(--blue);}
+
+.skillsgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.skillgroup{padding:22px;border-radius:16px;background:var(--card);border:1px solid var(--border);}
+.skillgroup .n{font-weight:700;font-size:15px;margin-bottom:14px;}
+.chip{font-size:12.5px;padding:6px 11px;border-radius:8px;background:var(--bg);border:1px solid var(--border);color:var(--text2);font-family:'JetBrains Mono',monospace;display:inline-block;margin:0 6px 6px 0;}
+html.light .chip{background:var(--bg2);}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.fchip{font-size:12.5px;padding:8px 15px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--text2);cursor:pointer;font-weight:600;}
+.fchip.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;border-color:transparent;}
+.searchbox{width:100%;max-width:320px;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:14px;margin-bottom:28px;}
+.searchbox::placeholder{color:var(--text3);}
+
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+.pcard{cursor:pointer;border-radius:16px;background:var(--card);border:1px solid var(--border);padding:22px;transition:transform .2s ease,border-color .2s ease;}
+.pcard:hover{transform:translateY(-4px);border-color:var(--border2);}
+.pcard-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:8px;flex-wrap:wrap;}
+.pcat{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--bg2);border:1px solid var(--border);color:var(--purple);font-family:'JetBrains Mono',monospace;}
+.pstatus{font-size:11.5px;color:var(--text3);display:flex;align-items:center;gap:6px;}
+.pstatus.live{color:var(--emerald);}
+.pstatus .dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);}
+.pcard h3{font-size:18px;margin:0 0 8px;}
+.pcard p{font-size:13.5px;color:var(--text2);line-height:1.5;margin:0 0 14px;}
+.pstack{display:flex;flex-wrap:wrap;gap:6px;}
+.stacktag{font-size:11px;padding:4px 9px;border-radius:6px;background:var(--bg);color:var(--text3);font-family:'JetBrains Mono',monospace;}
+.wl-flag{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--blue);}
+.showmore{margin-top:24px;text-align:center;}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{max-width:720px;width:100%;max-height:86vh;overflow-y:auto;border-radius:20px;background:var(--bg2);border:1px solid var(--border2);padding:clamp(24px,4vw,44px);position:relative;}
+.modal-close{position:absolute;top:20px;right:20px;width:34px;height:34px;border-radius:9px;background:var(--card);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:15px;}
+.modal h3{font-size:clamp(22px,4vw,30px);margin:0 0 10px;}
+.modal .lead{font-size:15px;color:var(--text2);line-height:1.6;margin:0 0 22px;}
+.modal-block{margin-bottom:18px;}
+.modal-label{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:6px;font-family:'JetBrains Mono',monospace;}
+.modal-val{font-size:14px;color:var(--text2);line-height:1.6;}
+.feat-list div{display:flex;gap:8px;font-size:14px;color:var(--text2);margin-bottom:5px;}
+.feat-list .ck{color:var(--emerald);}
+
+.contact-panel{border-radius:26px;background:linear-gradient(135deg,var(--bg2),var(--card));border:1px solid var(--border);padding:clamp(36px,7vw,72px);text-align:center;position:relative;overflow:hidden;}
+.contact-panel h2{font-size:clamp(26px,5vw,44px);margin:0 0 16px;}
+.contact-panel p{font-size:16px;color:var(--text2);max-width:540px;margin:0 auto 30px;line-height:1.6;}
+.contact-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+
+footer{padding:32px clamp(20px,6vw,80px);border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--text3);position:relative;z-index:1;}
+footer a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+
+<nav>
+  <a href="#top" class="brand"><span class="sq">JN</span>Jassra Naeem</a>
+  <div class="navlinks" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#journey">Journey</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="navtools">
+    <button class="iconbtn" id="themeBtn" title="Toggle theme">☾</button>
+    <a href="#contact" class="navcta">Get in touch</a>
+    <button class="navtoggle" id="navToggle" aria-label="Menu">≡</button>
+  </div>
+</nav>
+
+<section id="top" class="hero">
+  <div class="eyebrow blue">Full-Stack Developer · AI Applications · WordPress at Scale</div>
+  <h1>Jassra Naeem</h1>
+  <p class="lead">I build AI applications, automation platforms, and high-performance web products — from custom WordPress at scale to multi-agent AI systems for clients across Pakistan, the UAE, Australia, and the UK.</p>
+  <div class="hero-ctas">
+    <a href="#projects" class="btn btn-grad">View Featured Work</a>
+    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+  </div>
+  <div class="stats">
+    <div><div class="n" id="s1">0+</div><div class="l">Years Experience</div></div>
+    <div><div class="n" id="s2">0</div><div class="l">Projects Delivered</div></div>
+    <div><div class="n" id="s3">0</div><div class="l">Countries Served</div></div>
+    <div><div class="n" id="s4">0</div><div class="l">AI Systems Built</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="avatar">JN</div>
+      <div class="about-meta">Quetta, Pakistan<br>Open to relocation · visa sponsorship</div>
+    </div>
+    <div>
+      <div class="eyebrow purple">About</div>
+      <h2 class="h">Full-stack engineering meets applied AI</h2>
+      <div class="about-body">
+        <p>I'm a full-stack web developer with 3+ years building production websites, e-commerce platforms, and AI-powered applications for clients across Pakistan, the UAE, Australia, and the UK. I specialize in custom WordPress and WooCommerce development, and since 2025 I've focused on AI application engineering — building AI agents, multi-agent workflows, n8n automation pipelines, and SaaS platforms that orchestrate LLM, image, voice, and video generation APIs.</p>
+        <p class="note">Several projects below were delivered as white-label agency work, where public credit is contractually retained by the client or agency — those are marked clearly. I don't publish proprietary client code; where I can't share it, I document the architecture and my role instead.</p>
+      </div>
+      <div class="cards3">
+        <div class="card"><div class="t">AI-first builder</div><div class="d">I treat LLMs, agents, and automation as core infrastructure, not add-ons.</div></div>
+        <div class="card"><div class="t">Full-stack ownership</div><div class="d">From database architecture to deployment, I ship the whole system.</div></div>
+        <div class="card"><div class="t">WordPress at scale</div><div class="d">Hand-coded themes, custom plugins, and performance/security hardening.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="eyebrow blue">Professional Journey</div>
+  <h2 class="h">Experience Timeline</h2>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<section id="skills" style="background:var(--bg2);">
+  <div class="eyebrow purple">Skills Matrix</div>
+  <h2 class="h">Technology Ecosystem</h2>
+  <div class="skillsgrid" id="skillsGrid"></div>
+</section>
+
+<section id="projects">
+  <div class="eyebrow blue">Featured Work</div>
+  <h2 class="h">Case Studies</h2>
+  <p style="color:var(--text3);font-size:15.5px;margin:0 0 32px;max-width:600px;">AI systems, ERP engineering, and production WordPress — verified-credit and white-label work are both real, tagged clearly.</p>
+  <div class="filters" id="filters"></div>
+  <input class="searchbox" id="search" placeholder="Search projects…">
+  <div class="pgrid" id="pgrid"></div>
+  <div class="showmore"><button class="btn btn-outline" id="showAllBtn" style="cursor:pointer;">Show all projects</button></div>
+</section>
+
+<section id="contact">
+  <div class="contact-panel">
+    <h2>Let's build something exceptional together.</h2>
+    <p>Open to full-time international roles with visa sponsorship, and to freelance / consulting engagements.</p>
+    <div class="contact-ctas">
+      <a href="mailto:jassranaeem@yahoo.com" class="btn btn-grad">Email me</a>
+      <a href="https://www.linkedin.com/in/jassra-naeem-7529671bb/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+      <a href="https://github.com/jassranaeem" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+    </div>
+    <div class="mono" style="font-size:12.5px;color:var(--text3);">Quetta, Pakistan · Open to relocation worldwide</div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Jassra Naeem.</div>
+  <div style="display:flex;gap:18px;">
+    <a href="mailto:jassranaeem@yahoo.com">Email</a>
+    <a href="https://github.com/jassranaeem" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/jassra-naeem-7529671bb/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<script>
+const PROJECTS = [
+  { id:'hf-erp', featured:true, hasCaseStudy:true, title:'HF Transport ERP', category:'ERP & SaaS',
+    tagline:'AI-assisted fleet & logistics ERP, architected and delivered end-to-end as a personal project.',
+    isLive:true, statusLabel:'Live', url:'https://hf-transport-erp-747911138017.asia-southeast1.run.app/',
+    whiteLabel:false, stack:['React','Laravel 12','PostgreSQL','Google Cloud Run','Google AI Studio'],
+    overview:'A fleet and logistics ERP covering fleet status tracking, trip profitability, compliance alerts, and BI-driven rankings — directed and delivered independently using AI-assisted development tooling.',
+    role:'Sole architect and developer — requirements, database design, business logic, testing, and deployment.',
+    problem:'Transport operators need real-time visibility into fleet status and trip-level profitability, plus automated compliance alerts, but most SME fleet tools are either spreadsheets or expensive enterprise suites.',
+    solution:'Built a full-stack ERP with a Laravel API backend on PostgreSQL and a React frontend, deployed on Google Cloud Run, using Google AI Studio to accelerate development while retaining full ownership of architecture and business logic. This is AI-assisted engineering, not a purely hand-coded build.',
+    features:['Fleet status dashboard','Trip profitability calculations','Compliance alert engine','BI performance rankings','Role-based access'],
+    impact:'Delivered a production-grade ERP end-to-end as a solo, AI-assisted build, demonstrating the ability to own a complex business system from database schema to cloud deployment.',
+    skillsDemo:['Full-stack architecture','Laravel & PostgreSQL','Cloud deployment (GCP)','AI-assisted engineering'], notes:null },
+
+  { id:'ai-saas', featured:true, hasCaseStudy:true, title:'AI Content Automation Platform', category:'AI & Automation',
+    tagline:'Multi-tenant pipeline automating long-form video production end to end.',
+    isLive:false, statusLabel:'Documented — GitHub', url:'https://github.com/jassranaeem/ai-content-automation-platform',
+    whiteLabel:false, stack:['n8n','fal.ai','ElevenLabs','FLUX','Kling AI','Remotion','Node.js'],
+    overview:'A multi-tenant pipeline automating script-to-video production: AI voice-over, image generation, video generation, and programmatic rendering, orchestrated as one pipeline.',
+    role:'Architect and developer — pipeline design, orchestration, and multi-tenant configuration.',
+    problem:'Content teams need to turn scripts into finished long-form video at scale without manually operating five separate AI tools per asset.',
+    solution:'Orchestrated the full pipeline in n8n: script ingestion, ElevenLabs voice-over, FLUX image generation via fal.ai, Kling AI video generation, and Remotion programmatic editing/rendering — with error handling, asset management, and per-client configuration.',
+    features:['End-to-end script-to-video pipeline','Multi-tenant client configuration','Automated error handling & retries','Asset management','Programmatic rendering (Remotion)'],
+    impact:'Replaces a manual, multi-tool video production workflow with one automated pipeline designed to onboard multiple client brands.',
+    skillsDemo:['AI orchestration (n8n)','Multi-tenant architecture','API integration','Programmatic video (Remotion)'],
+    notes:'Documentation-first repository — architecture shown, no client-specific workflow files or credentials included.' },
+
+  { id:'mcp', featured:true, hasCaseStudy:true, title:'WordPress + AI Integration via MCP', category:'AI & Automation',
+    tagline:'Connecting AI assistants directly to WordPress through the Model Context Protocol.',
+    isLive:false, statusLabel:'Documented — GitHub', url:'https://github.com/jassranaeem/wordpress-mcp-integration',
+    whiteLabel:false, stack:['Model Context Protocol','WordPress REST API','Claude'],
+    overview:'An MCP server that connects AI assistants directly to WordPress, enabling AI-driven content management, site administration, and publishing.',
+    role:'Developer — MCP server design and WordPress REST API integration.',
+    problem:'Managing WordPress content and administration through an AI assistant requires a secure, structured bridge between the assistant and the WordPress REST API.',
+    solution:'Built an MCP server exposing WordPress operations to AI assistants with credential-safe configuration, enabling content creation, editing, and publishing workflows driven by natural-language instructions.',
+    features:['MCP server for WordPress REST API','AI-driven content publishing','Credential-safe configuration','Site administration via AI assistant'],
+    impact:'Demonstrates applied Model Context Protocol engineering — a leading-edge pattern for connecting LLMs to real business systems.',
+    skillsDemo:['Model Context Protocol','WordPress REST API','AI tooling integration','Secure credential handling'], notes:null },
+
+  { id:'milky-way', featured:true, hasCaseStudy:true, title:'Milky Way Photographer of the Year', category:'WordPress',
+    tagline:'International photography competition platform with cart-based paid entries.',
+    isLive:true, statusLabel:'Live', url:'https://milkywayphotographeroftheyear.com/',
+    whiteLabel:true, stack:['WordPress','Custom PHP','Fluent Forms','MySQL'],
+    overview:'A competition platform for an international photography contest (Capture the Atlas, delivered 14 May 2025), handling registration, login, and cart-based paid entries.',
+    role:'WordPress developer — white-label client project.',
+    problem:'The competition needed a reliable way to accept paid entries at volume, validate submissions, and store/render entries from a database rather than static pages.',
+    solution:'Built custom PHP (functions.php) logic, custom shortcodes, and Fluent Forms workflows with custom processing and validation, backed by database-driven entry storage and rendering.',
+    features:['Cart-based paid entry system','Custom shortcodes','Fluent Forms custom validation','Database-driven entry rendering','Performance optimization'],
+    impact:'Delivered a production competition platform handling real paid submissions for an international audience.',
+    skillsDemo:['Custom PHP development','Fluent Forms customization','Database-driven WordPress','Performance optimization'],
+    notes:'Public credit for this project is retained by the client (Capture the Atlas) per agreement.' },
+
+  { id:'dr-samina', featured:true, hasCaseStudy:true, title:'Dr. Samina Ahmed — Fertility Specialist', category:'WordPress',
+    tagline:'Complete design, development, and SEO for a Melbourne medical practice.',
+    isLive:true, statusLabel:'Live', url:'https://drsamina.com.au/',
+    whiteLabel:false, stack:['WordPress','SEO','Custom Theme'],
+    overview:'Full website design, development, and SEO for a fertility and gynaecology practice in Melbourne, Australia (2025).',
+    role:'Sole developer/designer — freelance.',
+    problem:'The practice needed a trustworthy, search-visible web presence to reach patients researching fertility and gynaecology care.',
+    solution:'Designed and built the complete site with WordPress, focused on clarity, trust, and local SEO for a healthcare audience — 20+ service pages targeting local search intent.',
+    features:['Custom WordPress design','On-page SEO','Patient-facing information architecture','Mobile-responsive layout'],
+    impact:'Live production site for an international (Australian) healthcare client, delivered independently end-to-end.',
+    skillsDemo:['End-to-end WordPress delivery','Healthcare-sector SEO','International freelance client management'], notes:null },
+
+  { id:'al-mustajib', featured:true, hasCaseStudy:true, title:'Al Mustajib Group', category:'E-commerce',
+    tagline:'E-commerce platform for a Dubai emergency medical equipment supplier.',
+    isLive:true, statusLabel:'Live', url:'https://almustajibgroup.com/',
+    whiteLabel:true, stack:['WordPress','WooCommerce','PHP'],
+    overview:'A secure online store for an emergency medical equipment supplier in Dubai, UAE, with product catalogue, checkout, and order management.',
+    role:'Developer at Trinix Technologies.',
+    problem:'The client needed a secure e-commerce platform for medical equipment with reliable catalogue and order management.',
+    solution:'Built the storefront with WooCommerce, a full product catalogue, secure checkout, and order management workflows.',
+    features:['Product catalogue','Secure checkout','Order management','WooCommerce customization'],
+    impact:'Live e-commerce platform serving a UAE medical equipment supplier.',
+    skillsDemo:['WooCommerce development','E-commerce security','Agency white-label delivery'],
+    notes:'Developed while employed at Trinix Technologies (white-label client project).' },
+
+  { id:'zyltex', featured:true, hasCaseStudy:true, title:'Zyltex Website', category:'WordPress',
+    tagline:'Official company website — hand-coded theme with enterprise mega menu.',
+    isLive:true, statusLabel:'Live', url:'https://silver-hummingbird-355668.hostingersite.com/',
+    whiteLabel:false, stack:['WordPress','Custom HTML/CSS/JS'],
+    overview:'The official Zyltex company website, built as a custom WordPress theme from hand-coded HTML, CSS, and JavaScript.',
+    role:'WordPress Developer — full-time, current role.',
+    problem:'Zyltex needed an enterprise-grade site to present 13 products across 6 solution segments with fast, discoverable navigation.',
+    solution:'Hand-coded a custom theme featuring an enterprise mega menu (13 products, 6 solution segments), scroll animations, animated counters, and client-side search.',
+    features:['Enterprise mega menu (13 products / 6 segments)','Scroll animations','Animated counters','Client-side search'],
+    impact:'Currently the live site for the company, combining hand-built code with a polished enterprise UX.',
+    skillsDemo:['Hand-coded theme development','IA for large catalogues','Front-end animation','Client-side search'],
+    notes:'Currently on staging infrastructure ahead of production domain cutover.' },
+
+  { id:'gulbahar', featured:true, hasCaseStudy:true, title:'GulBahar Platinum Security', category:'WordPress',
+    tagline:'Corporate website with full SEO implementation for a Pakistan/UK security firm.',
+    isLive:true, statusLabel:'Live', url:'https://gulbharplatinumsecurity.com/',
+    whiteLabel:false, stack:['WordPress','SEO'],
+    overview:'Corporate website for a VIP security services firm serving Pakistan and UK clients, delivered January 2026.',
+    role:'Freelance developer.',
+    problem:'A security services firm operating across two markets needed a professional site with strong search visibility.',
+    solution:'Built the corporate site with performance optimization and a full SEO implementation.',
+    features:['Corporate site design','Full SEO implementation','Performance optimization'],
+    impact:"Live site serving a security services firm's Pakistan and UK client base.",
+    skillsDemo:['International client delivery','Technical SEO','Performance optimization'], notes:null },
+
+  { id:'ai-agents', featured:false, hasCaseStudy:false, title:'AI Agents & Multi-Agent Workflows', category:'AI & Automation',
+    tagline:'Task-specific AI agents and coordinated multi-agent workflows for business automation.',
+    isLive:false, statusLabel:'Documented — GitHub', url:'https://github.com/jassranaeem/ai-agents-automation-framework',
+    whiteLabel:false, stack:['n8n','LLM APIs','REST APIs','Webhooks'], overview:'Task-specific AI agents and coordinated multi-agent workflows for business automation: research, content generation, data processing, and API-driven actions.', notes:null },
+
+  { id:'al-falah', featured:false, hasCaseStudy:false, title:'Al Falah Steel UAE', category:'WordPress',
+    tagline:'UAE client website, white-label project.', isLive:true, statusLabel:'Live', url:'https://alfalahsteeluae.com/',
+    whiteLabel:true, stack:['WordPress'], overview:'UAE steel and aluminum fabrication client website.', notes:'Developed while employed at Trinix Technologies (white-label client project).' },
+
+  { id:'mbgrm', featured:false, hasCaseStudy:false, title:'MBGRM', category:'WordPress',
+    tagline:'UAE client website, white-label project.', isLive:true, statusLabel:'Live', url:'https://mbgrm.com/',
+    whiteLabel:true, stack:['WordPress'], overview:'UAE interior fit-out and project management client website.', notes:'Developed while employed at Trinix Technologies (white-label client project).' },
+
+  { id:'al-aghar', featured:false, hasCaseStudy:false, title:'Al Aghar Interior', category:'WordPress',
+    tagline:'UAE interior design portfolio site, delivered in 2 working days.', isLive:true, statusLabel:'Live', url:'https://alagharinterior.com/',
+    whiteLabel:true, stack:['WordPress'], overview:'Fully custom portfolio website delivered in 2 working days.', notes:'Developed while employed at Trinix Technologies (white-label client project).' },
+
+  { id:'elysian', featured:false, hasCaseStudy:false, title:'Elysian Systems', category:'WordPress',
+    tagline:'Corporate website for an IT services company; still live in production.', isLive:true, statusLabel:'Live', url:'https://elysian.systems/',
+    whiteLabel:false, stack:['WordPress'], overview:'Client engagement delivered in 2023 alongside primary role at Welfare Empowerment Board; site remains live in production.', notes:null },
+
+  { id:'motorcade', featured:false, hasCaseStudy:false, title:'Motorcade Car Sales', category:'Personal & Demo',
+    tagline:'Personal/demo project — not a delivered client engagement.', isLive:true, statusLabel:'Live (demo)', url:'https://motorcadecarsales.co.uk/',
+    whiteLabel:false, stack:['WordPress'], overview:'Self-initiated demo build showcasing theme-building and listing/filter UI.', notes:null },
+
+  { id:'fah', featured:false, hasCaseStudy:false, title:'FAH Landscaping', category:'WordPress',
+    tagline:'UAE client website, white-label project.', isLive:true, statusLabel:'Live', url:'https://fahlandscaping.com/',
+    whiteLabel:true, stack:['WordPress'], overview:'Landscaping services website.', notes:'Developed while employed at Trinix Technologies (white-label client project).' },
+
+  { id:'elachi', featured:false, hasCaseStudy:false, title:'Elachi', category:'WordPress',
+    tagline:'Client website project — status unconfirmed.', isLive:false, statusLabel:'Unconfirmed', url:null,
+    whiteLabel:false, stack:['WordPress'], overview:'Client website project; the live URL is currently unreachable and status has not been reconfirmed.', notes:null },
+
+  { id:'al-nadeem', featured:false, hasCaseStudy:false, title:'Al Nadeem AC', category:'WordPress',
+    tagline:'AC & washing machine repair website, white-label project.', isLive:true, statusLabel:'Live', url:'https://alnadeemac.com/',
+    whiteLabel:true, stack:['WordPress'], overview:'AC and washing machine repair services website; logo also designed by developer.', notes:'Developed while employed at Trinix Technologies (white-label client project).' },
+
+  { id:'signature', featured:false, hasCaseStudy:false, title:'Signature Building', category:'E-commerce',
+    tagline:'Hardware e-commerce store, white-label project.', isLive:true, statusLabel:'Live', url:'https://signaturebldg.com/',
+    whiteLabel:true, stack:['WordPress','WooCommerce'], overview:'Hardware e-commerce store built on WordPress/WooCommerce.', notes:'Developed while employed at Trinix Technologies (white-label client project).' },
+
+  { id:'gojolla', featured:false, hasCaseStudy:false, title:'GoJolla', category:'E-commerce',
+    tagline:'Custom storefront built for a private client in 3 working days.', isLive:false, statusLabel:'Completed', url:null,
+    whiteLabel:false, stack:['WordPress','WooCommerce'], overview:'Custom e-commerce storefront for a private client, delivered in 3 working days.', notes:null },
+
+  { id:'faryal', featured:false, hasCaseStudy:false, title:'Faryal Fashion Store', category:'E-commerce',
+    tagline:'WooCommerce storefront for a private client in Karachi.', isLive:false, statusLabel:'Completed', url:null,
+    whiteLabel:false, stack:['WordPress','WooCommerce'], overview:'WooCommerce storefront built for a private client in Karachi.', notes:null },
+
+  { id:'ibox', featured:false, hasCaseStudy:false, title:'IBox', category:'Personal & Demo',
+    tagline:'React Native Bluetooth pairing app — contributed as a developer.', isLive:false, statusLabel:'Completed', url:null,
+    whiteLabel:false, stack:['React Native','Bluetooth'], overview:'Contributed to IBox, a React Native Bluetooth pairing app, during employment at Trinix Technologies.', notes:null }
+];
+
+const TIMELINE = [
+  { dates:'Jan 2026 – Present', type:'Full-time', role:'WordPress Developer & Social Media Manager', company:'Zyltex',
+    bullets:['Designed and developed the official Zyltex company website as a custom WordPress theme — enterprise mega menu (13 products, 6 solution segments), scroll animations, animated counters, and client-side search.','Manage the company\'s social media presence and brand content; contribute to web development and automation projects across client work.'] },
+  { dates:'Jun 2026 – Present', type:'Part-time · Concurrent', role:'Computer Instructor', company:'SEMS Academy — Quetta, Pakistan',
+    bullets:['Teach practical technology skills: web development (HTML, CSS, JavaScript), WordPress, AI tools, and software development.'] },
+  { dates:'May 2025 – Present', type:'Freelance · Concurrent', role:'Independent Full-Stack & AI Developer', company:'Freelance — remote clients',
+    bullets:['Design and build AI-powered web applications, combining React/Node.js frontends with LLM, image, voice, and video generation APIs.','Developed an AI content automation platform with multi-tenant architecture (n8n, ElevenLabs, FLUX, Kling AI, Remotion).','Build AI agents and multi-agent workflows for business automation, including WordPress integrations via MCP.','Delivered WordPress/WooCommerce projects including a medical practice site in Melbourne and a corporate site for a Pakistan/UK security firm.'] },
+  { dates:'Jul 2024 – May 2025', type:'Remote', role:'Senior WordPress Developer', company:'Trinix Technologies — Mumbai, India',
+    bullets:['Developed, maintained, and enhanced client websites end to end using HTML, CSS, JavaScript, PHP, and Python.','Built an e-commerce platform for Al Mustajib Group (Dubai, UAE) with catalogue, checkout, and order management.','Delivered white-label client sites (MBGRM, Al Falah Steel UAE) and a fully custom portfolio for Al Aghar Interior in 2 working days.','Contributed to IBox, a React Native Bluetooth pairing app.'] },
+  { dates:'Feb 2023 – Apr 2024', type:'Full-time', role:'Web Designer & Developer / Web Dev Instructor', company:'Welfare Empowerment Board — Quetta, Pakistan',
+    bullets:['Designed and developed responsive, accessible websites for social welfare and empowerment programs, requirements through deployment.','Taught web development courses (HTML, CSS, JavaScript, WordPress); built curricula and hands-on assignments.','Delivered client engagements including the corporate site for Elysian Systems and custom e-commerce builds (GoJolla, Faryal Fashion Store).'] }
+];
+
+const SKILLS = [
+  { name:'AI & Automation', items:['AI agent development','Multi-agent workflows','n8n automation','Claude / OpenAI APIs','Model Context Protocol','fal.ai','ElevenLabs','FLUX','Kling AI','Remotion','Prompt engineering'] },
+  { name:'Languages & Frameworks', items:['PHP','JavaScript (ES6+)','TypeScript','Python','HTML5','CSS3','React','React Native','Node.js','Express'] },
+  { name:'WordPress', items:['Custom theme development','Custom plugin development','WooCommerce','Elementor','Astra','WordPress REST API','Performance optimization','Security hardening','SEO'] },
+  { name:'Backend & Data', items:['REST API design','MySQL','PostgreSQL','Database architecture','ERP development'] },
+  { name:'Tools & Platforms', items:['Git / GitHub','Google Cloud Run','cPanel','CI basics','Figma','Adobe XD'] }
+];
+
+// Theme toggle
+const root = document.documentElement;
+const themeBtn = document.getElementById('themeBtn');
+function setTheme(light){ root.classList.toggle('light', light); themeBtn.textContent = light ? '☀' : '☾'; }
+setTheme(false);
+themeBtn.addEventListener('click', () => setTheme(!root.classList.contains('light')));
+
+// Mobile nav
+document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+
+// Stat counters
+function animateCounters(){
+  const targets = { s1:3, s2:22, s3:4, s4:4 };
+  const els = { s1:document.getElementById('s1'), s2:document.getElementById('s2'), s3:document.getElementById('s3'), s4:document.getElementById('s4') };
+  const start = performance.now(), dur = 1100;
+  function tick(t){
+    const p = Math.min(1,(t-start)/dur), e = 1-Math.pow(1-p,3);
+    els.s1.textContent = Math.round(targets.s1*e) + '+';
+    els.s2.textContent = Math.round(targets.s2*e);
+    els.s3.textContent = Math.round(targets.s3*e);
+    els.s4.textContent = Math.round(targets.s4*e);
+    if(p<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+animateCounters();
+
+// Timeline render
+const tlEl = document.getElementById('timeline');
+TIMELINE.forEach(job => {
+  const div = document.createElement('div');
+  div.className = 'tl-item';
+  div.innerHTML = `<div class="tl-dotwrap"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+    <div><div class="tl-meta"><span class="tl-date">${job.dates}</span><span class="tl-type">${job.type}</span></div>
+    <h3 class="tl-role">${job.role}</h3><div class="tl-co">${job.company}</div>
+    ${job.bullets.map(b=>`<div class="tl-b"><span class="dash">—</span><span>${b}</span></div>`).join('')}</div>`;
+  tlEl.appendChild(div);
+});
+
+// Skills render
+const skEl = document.getElementById('skillsGrid');
+SKILLS.forEach(grp => {
+  const div = document.createElement('div');
+  div.className = 'skillgroup';
+  div.innerHTML = `<div class="n">${grp.name}</div><div>${grp.items.map(s=>`<span class="chip">${s}</span>`).join('')}</div>`;
+  skEl.appendChild(div);
+});
+
+// Projects: filters + search + grid + modal
+const CATS = ['All','AI & Automation','ERP & SaaS','WordPress','E-commerce','Personal & Demo'];
+let activeCat = 'All', query = '', showAll = false;
+
+const filtersEl = document.getElementById('filters');
+CATS.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'fchip' + (c==='All'?' active':'');
+  b.textContent = c;
+  b.addEventListener('click', () => { activeCat = c; renderGrid();
+    document.querySelectorAll('.fchip').forEach(x=>x.classList.toggle('active', x.textContent===c)); });
+  filtersEl.appendChild(b);
+});
+document.getElementById('search').addEventListener('input', e => { query = e.target.value.toLowerCase(); renderGrid(); });
+document.getElementById('showAllBtn').addEventListener('click', () => { showAll = !showAll; document.getElementById('showAllBtn').textContent = showAll ? 'Show featured only' : 'Show all projects'; renderGrid(); });
+
+const pgrid = document.getElementById('pgrid');
+function renderGrid(){
+  pgrid.innerHTML = '';
+  const pool = showAll ? PROJECTS : PROJECTS.filter(p=>p.featured);
+  const filtered = pool.filter(p => {
+    const matchCat = activeCat==='All' || p.category===activeCat;
+    const hay = (p.title+' '+p.tagline+' '+p.stack.join(' ')).toLowerCase();
+    const matchQ = !query || hay.includes(query);
+    return matchCat && matchQ;
+  });
+  filtered.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'pcard';
+    card.innerHTML = `<div class="pcard-top"><span class="pcat">${p.category}</span>
+      <span class="pstatus ${p.isLive?'live':''}">${p.isLive?'<span class=\"dot\"></span>':''}${p.statusLabel}</span></div>
+      <h3>${p.title}${p.whiteLabel?' <span class=\"wl-flag\">White-label</span>':''}</h3>
+      <p>${p.tagline}</p>
+      <div class="pstack">${p.stack.map(s=>`<span class="stacktag">${s}</span>`).join('')}</div>`;
+    card.addEventListener('click', () => openModal(p));
+    pgrid.appendChild(card);
+  });
+}
+renderGrid();
+
+const overlay = document.getElementById('modalOverlay');
+const modalBody = document.getElementById('modalBody');
+function openModal(p){
+  let html = `<button class="modal-close" id="modalClose">✕</button>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+      <span class="pcat">${p.category}</span>${p.whiteLabel?'<span class="wl-flag">White-label</span>':''}
+    </div>
+    <h3>${p.title}</h3><p class="lead">${p.overview||p.tagline}</p>`;
+  if(p.hasCaseStudy){
+    html += `<div class="modal-block"><div class="modal-label">My Role</div><div class="modal-val">${p.role}</div></div>
+      <div class="modal-block"><div class="modal-label">Business Problem</div><div class="modal-val">${p.problem}</div></div>
+      <div class="modal-block"><div class="modal-label">Solution & Architecture</div><div class="modal-val">${p.solution}</div></div>
+      <div class="modal-block"><div class="modal-label">Features</div><div class="feat-list">${p.features.map(f=>`<div><span class="ck">✓</span>${f}</div>`).join('')}</div></div>
+      <div class="modal-block"><div class="modal-label">Business Impact</div><div class="modal-val">${p.impact}</div></div>
+      <div class="modal-block"><div class="modal-label">Skills Demonstrated</div><div>${p.skillsDemo.map(s=>`<span class="chip">${s}</span>`).join('')}</div></div>`;
+  }
+  html += `<div class="modal-block"><div class="modal-label">Tech Stack</div><div>${p.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div></div>`;
+  if(p.notes) html += `<p style="font-size:13px;color:var(--text3);font-style:italic;">${p.notes}</p>`;
+  html += `<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">`;
+  if(p.url) html += `<a href="${p.url}" target="_blank" rel="noopener" class="btn btn-grad">Visit Site ↗</a>`;
+  html += `<button class="btn btn-outline" id="modalCloseBtn" style="cursor:pointer;">Close</button></div>`;
+  modalBody.innerHTML = html;
+  overlay.classList.add('open');
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+}
+function closeModal(){ overlay.classList.remove('open'); }
+overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+</script>
+</body>
+</html>
